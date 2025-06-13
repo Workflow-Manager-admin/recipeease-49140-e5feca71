@@ -1,0 +1,79 @@
+---
+/**
+ * Sidebar Component for RecipeEase
+ * Displays categories for navigation in a clean, modern UI.
+ */
+const categories = [
+  "All Recipes",
+  "Breakfast",
+  "Lunch",
+  "Dinner",
+  "Desserts",
+  "Snacks",
+  "Drinks"
+];
+---
+
+<aside class="sidebar">
+  <div class="sidebar__header">
+    <span class="sidebar__logo">🍳</span>
+    <span class="sidebar__title">RecipeEase</span>
+  </div>
+  <nav>
+    <ul>
+      {categories.map(category => (
+        <li><a href="#">{category}</a></li>
+      ))}
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  .sidebar {
+    background: var(--color-primary);
+    color: #fff;
+    min-width: 220px;
+    height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 2rem;
+  }
+  .sidebar__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+  .sidebar__logo {
+    font-size: 1.8rem;
+  }
+  .sidebar__title {
+    color: #fff;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 4px;
+    transition: background 0.18s;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  nav a:hover, nav a:focus {
+    background: var(--color-accent);
+    color: #fff;
+  }
+</style>

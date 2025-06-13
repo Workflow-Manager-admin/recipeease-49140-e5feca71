@@ -1,0 +1,39 @@
+:root {
+  --color-primary: #4CAF50;
+  --color-secondary: #FFC107;
+  --color-accent: #FF5722;
+  --color-bg: #f7f8fa;
+}
+* {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Segoe UI', 'Inter', 'Roboto', Arial, sans-serif;
+  background: var(--color-bg);
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.16s;
+}
+a:hover {
+  color: var(--color-accent);
+}
+::selection {
+  background: var(--color-secondary);
+  color: #222;
+}
+input, button, select, textarea {
+  font-family: inherit;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background: #efefef;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 7px;
+}

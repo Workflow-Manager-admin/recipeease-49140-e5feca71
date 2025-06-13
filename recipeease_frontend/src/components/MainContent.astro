@@ -1,0 +1,66 @@
+---
+/**
+ * MainContent Component for RecipeEase
+ * Placeholder for main recipe grid/list and header
+ */
+---
+
+<main class="main-content">
+  <header class="main-header">
+    <h1>Recipes</h1>
+    <input type="search" class="main-search" placeholder="Search recipes..." />
+  </header>
+  <section class="recipes-placeholder">
+    <p>Browse and discover delicious recipes here!</p>
+  </section>
+</main>
+
+<style>
+  .main-content {
+    flex: 1;
+    padding: 2.3rem 2.2rem;
+    background: var(--color-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  .main-header h1 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  .main-search {
+    padding: 0.55rem 1.1rem;
+    font-size: 1rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 20px;
+    outline: none;
+    background: #fff;
+    color: #222;
+    transition: border-color 0.16s;
+  }
+  .main-search:focus {
+    border-color: var(--color-accent);
+  }
+  .recipes-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #757575;
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.7);
+    border-radius: 12px;
+    min-height: 200px;
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.03);
+  }
+</style>

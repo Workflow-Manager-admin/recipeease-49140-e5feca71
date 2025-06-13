@@ -1,0 +1,4 @@
+{
+    "command": "psql -h localhost -U appuser -d myapp -p 5432 -c \"SELECT version();\"",
+    "working_directory": "/home/kavia/workspace/code-generation/recipeease-49140-e5feca71/recipeease_database"
+}
