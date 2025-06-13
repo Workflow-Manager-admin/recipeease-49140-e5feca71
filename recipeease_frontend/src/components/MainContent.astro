@@ -41,12 +41,12 @@
   .main-search {
     padding: 0.55rem 1.1rem;
     font-size: 1rem;
-    border: 1px solid var(--color-secondary);
+    border: 1px solid var(--input-border);
     border-radius: 20px;
     outline: none;
-    background: #fff;
-    color: #222;
-    transition: border-color 0.16s;
+    background: var(--input-bg);
+    color: var(--color-text);
+    transition: border-color 0.16s, background 0.16s, color 0.16s;
   }
   .main-search:focus {
     border-color: var(--color-accent);
@@ -56,11 +56,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #757575;
+    color: var(--color-text-secondary);
     font-size: 1.1rem;
-    background: rgba(255,255,255,0.7);
+    background: var(--color-bg-secondary);
     border-radius: 12px;
     min-height: 200px;
-    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.03);
+    box-shadow: 0 1px 6px 0 rgba(0,0,0,0.06);
   }
 </style>

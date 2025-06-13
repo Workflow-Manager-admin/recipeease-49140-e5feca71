@@ -1,0 +1,86 @@
+---
+/**
+ * ThemeSwitcher Component — allows toggling light/dark mode.
+ */
+// PUBLIC_INTERFACE
+---
+
+<button
+  id="theme-switcher"
+  aria-pressed="false"
+  title="Switch theme"
+  style="
+    cursor: pointer;
+    border: none;
+    background: var(--color-bg-secondary);
+    color: var(--color-primary);
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    margin: 0 1rem;
+    font-size: 1.3rem;
+    transition: background 0.23s, color 0.23s;
+  "
+>
+  <span id="theme-icon" aria-hidden="true" style="font-size: 1.2rem;">🌙</span>
+  <span class="visually-hidden">Toggle Theme</span>
+</button>
+
+<script type="module">
+  // Theme initialization & toggle logic
+  const THEME_KEY = "re_theme";
+  const docEl = document.documentElement;
+  const btn = document.getElementById("theme-switcher");
+  const icon = document.getElementById("theme-icon");
+
+  // Determine initial theme
+  function getPreferredTheme() {
+    if (localStorage.getItem(THEME_KEY)) {
+      return localStorage.getItem(THEME_KEY);
+    }
+    if (window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  }
+
+  function setTheme(mode) {
+    docEl.setAttribute("data-theme", mode);
+    btn.setAttribute("aria-pressed", mode === "dark" ? "true" : "false");
+    localStorage.setItem(THEME_KEY, mode);
+    icon.textContent = mode === "dark" ? "☀️" : "🌙";
+  }
+
+  function toggleTheme() {
+    const current = docEl.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    setTheme(current === "dark" ? "light" : "dark");
+  }
+
+  // Initialize
+  setTheme(getPreferredTheme());
+
+  btn.addEventListener("click", toggleTheme);
+
+  // Listen for system changes
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener(
+    "change",
+    (e) => {
+      setTheme(e.matches ? "dark" : "light");
+    }
+  );
+</script>
+
+<style>
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; border: 0; padding: 0;
+    overflow: hidden; clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+</style>
